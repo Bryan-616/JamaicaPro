@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estadísticas</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Estadísticas de JamaicaPro</h1>
+
+    <h2>Productos más vendidos</h2>
+    <canvas id="ventasChart" width="400" height="200"></canvas>
+
+    <h2>Stock actual</h2>
+    <canvas id="stockChart" width="400" height="200"></canvas>
+
+    <script>
+        const ventasCtx = document.getElementById('ventasChart').getContext('2d');
+        const ventasChart = new Chart(ventasCtx, {
+            type: 'bar',
+            data: {
+                labels: {{ nombres|safe }},
+                datasets: [{
+                    label: 'Cantidad Vendida',
+                    data: {{ cantidades|safe }},
+                    backgroundColor: 'rgba(75, 192, 192, 0.7)'
+                }]
+            }
+        });
+
+        const stockCtx = document.getElementById('stockChart').getContext('2d');
+        const stockChart = new Chart(stockCtx, {
+            type: 'bar',
+            data: {
+                labels: {{ stock_nombres|safe }},
+                datasets: [{
+                    label: 'Cantidad en Inventario',
+                    data: {{ stock_cantidades|safe }},
+                    backgroundColor: 'rgba(255, 99, 132, 0.7)'
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

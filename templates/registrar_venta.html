@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Venta</title>
+</head>
+<body>
+    <h1>Registrar nueva venta</h1>
+    <form method="POST">
+        <label>Producto:</label><br>
+        <select name="producto_id" required>
+            {% for p in productos %}
+            <option value="{{ p[0] }}">{{ p[1] }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label>Cantidad vendida:</label><br>
+        <input type="number" name="cantidad" min="1" required><br><br>
+        <input type="submit" value="Registrar venta">
+    </form>
+    <br>
+    <a href="/ventas">Ver historial de ventas</a>
+</body>
+</html>

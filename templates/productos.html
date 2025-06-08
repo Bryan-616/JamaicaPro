@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Productos</title>
+</head>
+<body>
+    <h1>Productos registrados</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Nombre</th><th>Tipo</th><th>Cantidad</th><th>Acciones</th></tr>
+        {% for p in productos %}
+        <tr>
+            <td>{{ p[0] }}</td>
+            <td>{{ p[1] }}</td>
+            <td>{{ p[2] }}</td>
+            <td>{{ p[3] }}</td>
+            <td>
+                <a href="/editar/{{ p[0] }}">Editar</a> |
+                <a href="/eliminar/{{ p[0] }}" onclick="return confirm('¿Seguro que deseas eliminar este producto?')">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br><br>
+    <a href="/reporte_pdf" target="_blank">
+        <button style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px;">
+            Descargar Reporte PDF
+        </button>
+    </a>
+
+    <br><br>
+    <a href="/agregar">Agregar nuevo producto</a>
+</body>
+</html>

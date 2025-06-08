@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Producto</title>
+</head>
+<body>
+    <h1>Editar producto</h1>
+    <form method="POST">
+        <label>Nombre:</label><br>
+        <input type="text" name="nombre" value="{{ producto[1] }}" required><br><br>
+        <label>Tipo:</label><br>
+        <input type="text" name="tipo" value="{{ producto[2] }}" required><br><br>
+        <label>Cantidad:</label><br>
+        <input type="number" name="cantidad" value="{{ producto[3] }}" required><br><br>
+        <input type="submit" value="Guardar cambios">
+    </form>
+    <a href="/productos">Volver a productos</a>
+</body>
+</html>
