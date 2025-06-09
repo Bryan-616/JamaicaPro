@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>JamaicaPro - Ventas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f0ec;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4a2c2a;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #8b0000;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #8b0000;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8e6e0;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 20px 10px 0;
+            padding: 10px 25px;
+            background-color: #8b0000;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .button:hover {
+            background-color: #a52a2a;
+        }
+    </style>
+</head>
+<body>
+    <h1>📄 Historial de Ventas</h1>
+
+    {% if ventas %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Fecha</th>
+        </tr>
+        {% for v in ventas %}
+        <tr>
+            <td>{{ v[0] }}</td>
+            <td>{{ v[1] }}</td>
+            <td>{{ v[2] }}</td>
+            <td>{{ v[3][:10] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No se han registrado ventas aún.</p>
+    {% endif %}
+
+    <br>
+    <a class="button" href="/registrar_venta">➕ Registrar nueva venta</a>
+    <a class="button" href="/">🏠 Volver al inicio</a>
+</body>
+</html>
